@@ -1,15 +1,18 @@
+<!-- frontend/public/index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- RESTRICCIÓN INQUEBRANTABLE LEGALTECH: Bloqueo de indexación -->
+    <!-- RESTRICCIÓN INQUEBRANTABLE LEGALTECH: Bloqueo de indexación de datos sensibles -->
     <meta name="robots" content="noindex, nofollow">
-    <title>Portal de Innovación Judicial LegalTech</title>
+    <title>Innovación Judicial | Gobierno de Datos e IA</title>
     
-    <!-- Tailwind CSS (Framework de diseño moderno para UI rápida y hermosa) -->
+    <!-- Tailwind CSS para diseño moderno -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -17,7 +20,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      // Configuración de privacidad activa
+      // Configuración de privacidad activa para enmascaramiento de IP base
       gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true }); 
     </script>
     
@@ -25,214 +28,239 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand_primary: '#0f172a', /* Deep Slate - Trust/Legal */
-                        brand_secondary: '#1e293b',
-                        accent_color: '#ec4899', /* Pink - Interaction/CTAs */
-                        accent_hover: '#db2777'
+                        legal_dark: '#0B132B',
+                        legal_blue: '#1C2541',
+                        tech_cyan: '#47A8BD',
+                        tech_accent: '#FF3366'
                     }
                 }
             }
         }
     </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .toast-enter { animation: slideIn 0.5s ease-out forwards; }
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-slate-100 text-slate-800 font-sans antialiased selection:bg-tech_accent selection:text-white">
 
-    <!-- Hero Section -->
-    <header class="relative bg-brand_primary text-white">
-        <!-- Imagen de fondo ofuscada -->
-        <div class="absolute inset-0 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Justicia" class="w-full h-full object-cover opacity-20">
+    <!-- Hero Section de Vanguardia -->
+    <header class="relative bg-legal_dark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Imagen abstracta de datos/tecnología -->
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80" alt="Data Abstract" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-t from-legal_dark via-transparent to-transparent"></div>
         </div>
-        <div class="relative max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 text-center shadow-md">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-lg">
-                Centro de Inteligencia y <span class="text-accent_color">Innovación Judicial</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-32 sm:px-6 lg:px-8 text-center shadow-md">
+            <span class="inline-block py-1 px-3 rounded-full bg-tech_cyan/20 text-tech_cyan text-sm font-semibold tracking-wider mb-4 border border-tech_cyan/30">
+                PROYECTO DE INNOVACIÓN LEGALTECH
+            </span>
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-lg">
+                Gobierno de Datos & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-tech_cyan to-tech_accent">Visual Analytics Judicial</span>
             </h1>
-            <p class="mt-4 max-w-2xl text-xl mx-auto text-slate-300">
-                Plataforma de investigación académica sobre LegalTech, Gobierno de Datos e Inteligencia Artificial en el marco normativo colombiano.
+            <p class="mt-4 max-w-3xl text-xl mx-auto text-slate-300 font-light leading-relaxed">
+                Repositorio especializado en la convergencia del marco normativo colombiano, la Inteligencia Artificial y la estructuración de ecosistemas de Big Data.
             </p>
         </div>
     </header>
 
-    <!-- Main Data Grid Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Repositorio Documental Real -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         
-        <div class="mb-12 text-center">
-            <h2 class="text-3xl font-bold text-brand_primary">Fuentes de Verdad (Single Source of Truth)</h2>
-            <p class="text-slate-600 mt-2">Acceso a repositorios normativos reales para ingesta de datos y procesos de ETL.</p>
+        <div class="mb-16 text-center">
+            <h2 class="text-3xl font-bold text-legal_dark">Repositorio Normativo Colombiano</h2>
+            <p class="text-slate-500 mt-3 text-lg">Fuentes formales para la ingesta de datos e investigación en IA.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <!-- Resource Card 1 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-2 duration-300 border-t-4 border-brand_primary group">
+            <!-- Recurso 1: Ley 1581 -->
+            <div class="glass-card rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-2 duration-300 group">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Constitución Política" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1633265486064-086b219458ce?auto=format&fit=crop&w=600&q=80" alt="Privacidad de Datos" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-legal_dark/40 group-hover:bg-transparent transition-all duration-500"></div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-brand_primary mb-2">Constitución Política</h3>
-                    <p class="text-sm text-slate-600 mb-6 h-16">Norma de normas (1991). Base arquitectónica de los derechos fundamentales y el estado social de derecho.</p>
-                    <a href="https://www.corteconstitucional.gov.co/inicio/Constitucion%20politica%20de%20Colombia.pdf" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'resource_click', {'document_id': 'constitucion_1991'})" class="inline-flex items-center px-4 py-2 bg-slate-100 text-brand_primary font-semibold rounded-lg hover:bg-brand_primary hover:text-white transition-colors w-full justify-center">
-                        Consultar PDF <i class="fas fa-external-link-alt ml-2"></i>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-shield-alt text-tech_accent"></i>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Protección</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-legal_dark mb-2">Ley 1581 de 2012</h3>
+                    <p class="text-sm text-slate-600 mb-6 h-20">Régimen General de Protección de Datos Personales. Fundamental para cualquier arquitectura de bases de datos y Visual Analytics.</p>
+                    <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1684724" target="_blank" onclick="gtag('event', 'consulta_ley', {'documento': 'ley_1581'})" class="block w-full py-3 text-center bg-slate-100 text-legal_blue font-semibold rounded-lg hover:bg-legal_blue hover:text-white transition-colors">
+                        Consultar Ley en SUIN
                     </a>
                 </div>
             </div>
 
-            <!-- Resource Card 2 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-2 duration-300 border-t-4 border-brand_primary group">
+            <!-- Recurso 2: CONPES 3920 Big Data -->
+            <div class="glass-card rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-2 duration-300 group">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1505664173691-a28d414749f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Código General del Proceso" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Big Data" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-legal_dark/40 group-hover:bg-transparent transition-all duration-500"></div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-brand_primary mb-2">C.G.P. (Ley 1564)</h3>
-                    <p class="text-sm text-slate-600 mb-6 h-16">Regula la actividad procesal en jurisdicción civil, comercial, de familia y agraria. Flujos procesales.</p>
-                    <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?id=30019941" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'resource_click', {'document_id': 'cgp_ley_1564'})" class="inline-flex items-center px-4 py-2 bg-slate-100 text-brand_primary font-semibold rounded-lg hover:bg-brand_primary hover:text-white transition-colors w-full justify-center">
-                        Portal SUIN <i class="fas fa-external-link-alt ml-2"></i>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-database text-tech_cyan"></i>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Explotación de Datos</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-legal_dark mb-2">CONPES 3920</h3>
+                    <p class="text-sm text-slate-600 mb-6 h-20">Política Nacional de Explotación de Datos (Big Data). Lineamientos del Estado para generar valor público y económico.</p>
+                    <a href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3920.pdf" target="_blank" onclick="gtag('event', 'consulta_ley', {'documento': 'conpes_3920'})" class="block w-full py-3 text-center bg-slate-100 text-legal_blue font-semibold rounded-lg hover:bg-legal_blue hover:text-white transition-colors">
+                        Descargar Documento DNP
                     </a>
                 </div>
             </div>
 
-            <!-- Resource Card 3 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-2 duration-300 border-t-4 border-accent_color group">
+            <!-- Recurso 3: CONPES 3975 IA -->
+            <div class="glass-card rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-2 duration-300 group">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ley 1581 Datos Personales" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" alt="Inteligencia Artificial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-legal_dark/40 group-hover:bg-transparent transition-all duration-500"></div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-brand_primary mb-2">Data Privacy (Ley 1581)</h3>
-                    <p class="text-sm text-slate-600 mb-6 h-16">Régimen General de Protección de Datos Personales. Regla de negocio core para plataformas LegalTech.</p>
-                    <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1684724" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'resource_click', {'document_id': 'ley_1581_datos'})" class="inline-flex items-center px-4 py-2 bg-accent_color text-white font-semibold rounded-lg hover:bg-accent_hover transition-colors w-full justify-center shadow-md">
-                        Ver Normativa <i class="fas fa-shield-alt ml-2"></i>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-brain text-tech_accent"></i>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Tecnología</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-legal_dark mb-2">CONPES 3975</h3>
+                    <p class="text-sm text-slate-600 mb-6 h-20">Política Nacional para la Transformación Digital e Inteligencia Artificial en Colombia. Estrategia de innovación.</p>
+                    <a href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf" target="_blank" onclick="gtag('event', 'consulta_ley', {'documento': 'conpes_3975'})" class="block w-full py-3 text-center bg-slate-100 text-legal_blue font-semibold rounded-lg hover:bg-legal_blue hover:text-white transition-colors">
+                        Descargar Documento DNP
                     </a>
                 </div>
             </div>
 
-            <!-- Resource Card 4 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-2 duration-300 border-t-4 border-accent_color group">
+            <!-- Recurso 4: Ley 1712 Transparencia -->
+            <div class="glass-card rounded-2xl shadow-xl overflow-hidden transition-all hover:-translate-y-2 duration-300 group">
                 <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1507676184212-d0c30a5c78f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Inteligencia Artificial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80" alt="Justicia y Transparencia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-legal_dark/40 group-hover:bg-transparent transition-all duration-500"></div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-brand_primary mb-2">IA & Big Data (CONPES)</h3>
-                    <p class="text-sm text-slate-600 mb-6 h-16">Documento CONPES 3975. Política Nacional para Transformación Digital e Inteligencia Artificial.</p>
-                    <a href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/3975.pdf" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'resource_click', {'document_id': 'conpes_3975_ia'})" class="inline-flex items-center px-4 py-2 bg-accent_color text-white font-semibold rounded-lg hover:bg-accent_hover transition-colors w-full justify-center shadow-md">
-                        Documento DNP <i class="fas fa-brain ml-2"></i>
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-balance-scale text-tech_cyan"></i>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Acceso Abierto</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-legal_dark mb-2">Ley 1712 de 2014</h3>
+                    <p class="text-sm text-slate-600 mb-6 h-20">Ley de Transparencia y Derecho de Acceso a la Información Pública. Base de los repositorios abiertos gubernamentales.</p>
+                    <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1686768" target="_blank" onclick="gtag('event', 'consulta_ley', {'documento': 'ley_1712'})" class="block w-full py-3 text-center bg-slate-100 text-legal_blue font-semibold rounded-lg hover:bg-legal_blue hover:text-white transition-colors">
+                        Consultar Ley en SUIN
                     </a>
                 </div>
             </div>
 
         </div>
 
-        <!-- Analytics Testing Form (LegalTech Compliance) -->
-        <div class="mt-24 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col md:flex-row">
-            <div class="md:w-5/12 bg-brand_secondary p-10 text-white flex flex-col justify-center relative overflow-hidden">
-                <i class="fas fa-fingerprint absolute -bottom-10 -left-10 text-9xl text-white opacity-5 transform -rotate-12"></i>
-                <h3 class="text-3xl font-bold mb-4 z-10">Módulo de Integración Analítica</h3>
-                <p class="text-slate-300 mb-6 text-sm z-10 leading-relaxed">
-                    Formulario diseñado bajo la arquitectura <strong>Privacy by Design</strong>. Captura eventos transaccionales para Google Analytics cumpliendo con la auditoría del DAMA-DMBOK y el Opt-in de la SIC.
-                </p>
-                <ul class="space-y-4 text-sm z-10">
-                    <li class="flex items-center"><i class="fas fa-check-circle text-accent_color mr-3 text-lg"></i> Trazabilidad (IP & Timestamp logger)</li>
-                    <li class="flex items-center"><i class="fas fa-check-circle text-accent_color mr-3 text-lg"></i> Dynamic Data Masking en Pipeline</li>
-                    <li class="flex items-center"><i class="fas fa-check-circle text-accent_color mr-3 text-lg"></i> Generación de UUIDs por sesión</li>
-                </ul>
-            </div>
-            
-            <div class="md:w-7/12 p-10">
-                <h4 class="text-2xl font-bold text-brand_primary mb-2">Simulación Freemium / Premium</h4>
-                <p class="text-slate-500 mb-8 text-sm">Ingresa un correo de prueba para disparar los eventos en tu dashboard de GA4.</p>
+        <!-- Módulo de Conversión Limpio (Sin consola visible) -->
+        <div class="mt-24 max-w-3xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100 relative overflow-hidden">
+                <!-- Diseño de fondo abstracto -->
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-gradient-to-br from-tech_cyan/20 to-tech_accent/20 blur-3xl pointer-events-none"></div>
                 
-                <form id="analyticsRegistrationForm" class="space-y-6">
+                <div class="text-center mb-8 relative z-10">
+                    <h3 class="text-3xl font-extrabold text-legal_dark mb-3">Acceso a Casos de Estudio Pro</h3>
+                    <p class="text-slate-500">Regístrese para recibir datasets anonimizados y análisis de innovación judicial. Toda interacción es procesada mediante analítica web segura.</p>
+                </div>
+
+                <form id="accessForm" class="space-y-6 relative z-10">
                     <div>
-                        <label for="userEmail" class="block text-sm font-semibold text-slate-700 mb-1">Correo Electrónico Institucional</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-envelope text-slate-400"></i>
-                            </div>
-                            <input type="email" id="userEmail" class="pl-10 block w-full px-4 py-3 rounded-lg border-slate-300 border focus:ring-2 focus:ring-brand_primary focus:border-brand_primary transition-shadow bg-slate-50" placeholder="usuario@legaltech.io" required>
-                        </div>
+                        <input type="email" id="emailInput" class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-tech_cyan focus:border-tech_cyan transition-all text-slate-700" placeholder="Su correo electrónico institucional" required>
                     </div>
                     
-                    <div class="bg-slate-100 p-5 rounded-lg border border-slate-200">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5 mt-1">
-                                <!-- LEY 1581: NUNCA PRE-MARCAR ESTA CASILLA -->
-                                <input id="consentPrivacyPolicy" type="checkbox" class="focus:ring-brand_primary h-5 w-5 text-brand_primary border-slate-300 rounded cursor-pointer" required>
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="consentPrivacyPolicy" class="font-bold text-brand_primary cursor-pointer">Consentimiento Informado (Opt-in Explícito)</label>
-                                <p class="text-slate-600 mt-1">
-                                    Autorizo de manera previa, expresa e informada el tratamiento de mis datos personales según la Ley 1581 de 2012. Entiendo que mi dirección IP y fecha de registro formarán parte del log de auditoría inmutable.
-                                </p>
-                            </div>
+                    <div class="flex items-start bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex items-center h-5 mt-1">
+                            <!-- Opt-in explícito obligatorio (Ley 1581) -->
+                            <input id="legalConsent" type="checkbox" class="w-5 h-5 text-tech_cyan border-slate-300 rounded focus:ring-tech_cyan cursor-pointer" required>
+                        </div>
+                        <div class="ml-3">
+                            <label for="legalConsent" class="text-sm font-semibold text-legal_dark cursor-pointer">Autorización de Tratamiento de Datos (Ley 1581 de 2012)</label>
+                            <p class="text-xs text-slate-500 mt-1">Acepto de manera previa, expresa e informada el uso de mis datos. Entiendo que mi dirección IP y huella de tiempo serán auditadas con fines estadísticos.</p>
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-md text-base font-bold text-white bg-accent_color hover:bg-accent_hover focus:outline-none focus:ring-4 focus:ring-pink-300 transition-all transform hover:-translate-y-0.5">
-                        <i class="fas fa-database mr-2"></i> Procesar Transacción Analítica
+                    <button type="submit" class="w-full py-4 px-6 bg-legal_dark hover:bg-legal_blue text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-3">
+                        <span>Generar Acceso</span>
+                        <i class="fas fa-arrow-right"></i>
                     </button>
                 </form>
-
-                <!-- Consola Mock Backend -->
-                <div id="backendConsole" class="mt-8 bg-[#0f172a] text-[#4ade80] p-5 rounded-lg font-mono text-xs hidden shadow-inner overflow-x-auto border border-slate-700">
-                    <div class="flex items-center mb-2 text-slate-400 border-b border-slate-700 pb-2">
-                        <i class="fas fa-terminal mr-2"></i> Terminal de Auditoría - Servidor
-                    </div>
-                    <div id="consoleOutput" class="space-y-1"></div>
-                </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer Security Layer -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-center py-10 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <p class="mb-4 md:mb-0"><i class="fas fa-shield-alt mr-2"></i> Desarrollado bajo infraestructura <strong>Cloud & Zero Trust</strong>.</p>
-            <div class="flex space-x-6">
-                <span>ISO/IEC 38500 Compliant</span>
-                <span>DAMA-DMBOK V2</span>
+    <!-- Footer Corporativo -->
+    <footer class="bg-legal_dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center justify-center gap-3 mb-6">
+                <i class="fas fa-layer-group text-2xl text-tech_cyan"></i>
+                <span class="text-xl font-bold text-white tracking-widest">LEGAL<span class="text-tech_cyan">TECH</span></span>
             </div>
+            <p class="text-sm mb-4">Plataforma estructurada bajo lineamientos DAMA-DMBOK y cumplimiento normativo colombiano.</p>
+            <p class="text-xs text-slate-500">Diseñado para la generación de tráfico analítico integral y Visual Analytics.</p>
         </div>
     </footer>
 
-    <!-- Script de lógica transaccional -->
+    <!-- Contenedor para Notificación (Toast) -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
+
+    <!-- Lógica Transaccional Limpia -->
     <script>
-        document.getElementById('analyticsRegistrationForm').addEventListener('submit', function(e) {
+        document.getElementById('accessForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const userEmail = document.getElementById('userEmail').value;
-            const hasConsent = document.getElementById('consentPrivacyPolicy').checked;
+            const email = document.getElementById('emailInput').value;
+            const hasConsent = document.getElementById('legalConsent').checked;
 
             if (hasConsent) {
-                // Generación de UUIDv4 (Estándar de arquitectura para llaves primarias en PostgreSQL)
-                const transactionUuid = crypto.randomUUID ? crypto.randomUUID() : 'req-' + Math.random().toString(36).substring(2, 15);
-                const isoTimestamp = new Date().toISOString();
+                // Generación de UUID para trazabilidad en GA4 (Requisito Arquitectura)
+                const traceId = crypto.randomUUID ? crypto.randomUUID() : 'trace-' + Math.random().toString(36).substring(2, 15);
                 
-                // Disparo de evento al Data Layer de GA4
-                gtag('event', 'sign_up', {
-                    'method': 'web_application',
-                    'user_tier': 'freemium_tier',
-                    'transaction_id': transactionUuid
+                // 1. Envío silencioso del evento a Google Analytics
+                gtag('event', 'registro_innovacion', {
+                    'metodo_captura': 'landing_page_principal',
+                    'trace_id': traceId
                 });
 
-                // Simulación visual del log en backend
-                const backendConsole = document.getElementById('backendConsole');
-                const consoleOutput = document.getElementById('consoleOutput');
-                
-                backendConsole.classList.remove('hidden');
-                consoleOutput.innerHTML = `
-                    <p class="text-blue-400">[INFO] Request recibida en Endpoint POST /api/v1/users</p>
-                    <p>> Validando Opt-in Ley 1581... <span class="text-green-400">PASSED</span></p>
-                    <p>> Generando UUIDv4... [${transactionUuid}]</p>
-                    <p>> Guardando hash en PostgreSQL (created_at: ${isoTimestamp})</p>
-                    <p>> Enmascaramiento dinámico (DDM) activado para usuario_tier='freemium'</p>
-                    <p class="text-yellow-400">> EVENTO ENVIADO A GOOGLE ANALYTICS 4 DATA STREAM</p>
-                `;
+                // 2. Mostrar notificación de éxito elegante (Reemplaza a la consola visual)
+                showToast("Acceso generado exitosamente. Sus datos han sido procesados de forma segura.");
 
-                // Reset de formulario para la siguiente prueba
+                // 3. Limpiar formulario
                 this.reset();
             }
         });
+
+        // Función para renderizar notificaciones modernas
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast-enter bg-white border-l-4 border-tech_cyan shadow-2xl rounded-r-lg px-6 py-4 flex items-center gap-4 text-legal_dark font-semibold w-80';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle text-tech_cyan text-2xl"></i>
+                <p class="text-sm">${message}</p>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Auto-destrucción del toast después de 5 segundos
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(100%)';
+                toast.style.transition = 'all 0.5s ease-in';
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
     </script>
 </body>
 </html>
